@@ -264,7 +264,7 @@ function applyLivingNetwork(doc, pageWindow) {
         <p class="eyebrow">How we work together</p>
         <h2>Everything connects.</h2>
         <p>We find what matters most for you, right now.</p>
-        <a class="text-link" href="/nutrition-behaviour-change/">How it works</a>
+        <a class="text-link" href="nutrition-behaviour-change/">How it works</a>
       </div>
       <div class="holus-network-visual holus-fan" role="list" aria-label="How we work together: see, choose, adapt">
         <div class="fan-card" role="listitem"><div class="fan-art"><img src="assets/food-tea.svg" alt="" width="240" height="200"></div><b>See</b></div>

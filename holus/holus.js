@@ -185,8 +185,30 @@ function applyLivingNetwork(doc, pageWindow) {
       .holus-network-visual .tn-core-text { fill: white; font-weight: 700; }
       .holus-network-copy .eyebrow { color: var(--sage-deep); }
       .holus-network-copy h2 { max-width: 10ch; color: var(--ink); }
+      .holus-fan { position: relative; height: clamp(300px, 32vw, 400px); }
+      .fan-card { position: absolute; top: 8%; width: 35%; aspect-ratio: 3 / 4; display: grid; grid-template-rows: 1fr auto; padding: 16px 16px 20px; border-radius: 22px; background: white; box-shadow: 0 18px 40px rgba(36,51,65,.12); transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+      .fan-art { display: grid; place-items: center; border-radius: 14px; background: var(--cloud); }
+      .fan-art img { width: 80%; height: auto; }
+      .fan-card b { margin-top: 14px; color: var(--ink); font: 800 clamp(1.25rem, 2.4vw, 1.75rem)/1 Manrope, sans-serif; letter-spacing: -.03em; }
+      .fan-card:nth-child(1) { left: 0; transform: rotate(-8deg); }
+      .fan-card:nth-child(2) { left: 32.5%; z-index: 2; background: var(--ink); transform: rotate(1deg) translateY(-14px); }
+      .fan-card:nth-child(2) .fan-art { background: #2d3f50; }
+      .fan-card:nth-child(2) b { color: white; }
+      .fan-card:nth-child(3) { left: 65%; z-index: 1; transform: rotate(9deg); }
+      .fan-card:nth-child(3) b { padding-left: .6rem; }
+      @media (hover: hover) { .holus-fan:hover .fan-card { transform: none; } }
+      @media (max-width: 640px) {
+        .holus-fan { height: auto; aspect-ratio: 3 / 1.55; }
+        .fan-card { width: 31%; top: 8%; padding: 8px 8px 12px; border-radius: 16px; }
+        .fan-art { border-radius: 10px; }
+        .fan-card b { margin-top: 8px; font-size: 1.05rem; }
+        .fan-card:nth-child(1) { left: 2%; transform: rotate(-6deg); }
+        .fan-card:nth-child(2) { left: 34.5%; transform: translateY(-6px); }
+        .fan-card:nth-child(3) { left: 67%; transform: rotate(6deg); }
+      }
+      @media (prefers-reduced-motion: reduce) { .fan-card { transition: none; } }
       .holus-network-copy > p:not(.eyebrow) { max-width: 36rem; margin: 1.35rem 0 0; color: var(--muted); font-size: 1.04rem; }
-      .holus-network-copy .text-link { color: var(--ink); }
+      .holus-network-copy .text-link { display: inline-block; margin-top: 1.4rem; color: var(--ink); }
       .holus-network-points { display: flex; flex-wrap: wrap; gap: .35rem; margin: 1.6rem 0 2rem; padding: 0; color: var(--sage-deep); list-style: none; font: 700 .88rem/1.5 Manrope, sans-serif; }
       .holus-network-points li:not(:last-child)::after { content: " ·"; margin-left: .35rem; color: var(--sage-light); }
       .holus-network-visual .tn-lines line { stroke-dasharray: 420; stroke-dashoffset: 420; }
@@ -238,47 +260,21 @@ function applyLivingNetwork(doc, pageWindow) {
   method.classList.add('holus-network-section');
   method.innerHTML = `
     <div class="section-shell holus-network-grid">
-      <div class="holus-network-visual" aria-label="A network connects nutrition science with the many factors that shape eating">
-        <svg viewBox="0 0 520 520" role="img" aria-hidden="true">
-          <g class="tn-lines">
-            <line x1="260" y1="260" x2="260" y2="70"/><line x1="260" y1="260" x2="405" y2="125"/>
-            <line x1="260" y1="260" x2="445" y2="280"/><line x1="260" y1="260" x2="380" y2="415"/>
-            <line x1="260" y1="260" x2="205" y2="450"/><line x1="260" y1="260" x2="78" y2="340"/>
-            <line x1="260" y1="260" x2="85" y2="155"/><line x1="260" y1="70" x2="405" y2="125"/>
-            <line x1="445" y1="280" x2="380" y2="415"/><line x1="205" y1="450" x2="78" y2="340"/>
-            <line x1="85" y1="155" x2="260" y2="70"/>
-          </g>
-          <g class="tn-signals" aria-hidden="true">
-            <line x1="260" y1="260" x2="260" y2="70"/><line x1="260" y1="260" x2="405" y2="125"/>
-            <line x1="260" y1="260" x2="445" y2="280"/><line x1="260" y1="260" x2="380" y2="415"/>
-            <line x1="260" y1="260" x2="205" y2="450"/><line x1="260" y1="260" x2="78" y2="340"/>
-            <line x1="260" y1="260" x2="85" y2="155"/>
-          </g>
-          <g class="tn-nodes">
-            <circle cx="260" cy="70" r="45"/><circle cx="405" cy="125" r="45"/><circle cx="445" cy="280" r="45"/>
-            <circle cx="380" cy="415" r="45"/><circle cx="205" cy="450" r="45"/><circle cx="78" cy="340" r="45"/>
-            <circle cx="85" cy="155" r="45"/><circle class="tn-core" cx="260" cy="260" r="74"/>
-          </g>
-          <g class="tn-labels">
-            <text x="260" y="74">needs</text><text x="405" y="129">energy</text><text x="445" y="284">routines</text>
-            <text x="380" y="419">culture</text><text x="205" y="454">access</text><text x="78" y="344">habits</text>
-            <text x="85" y="159">goals</text><text class="tn-core-text" x="260" y="252">practical</text>
-            <text class="tn-core-text" x="260" y="272">nutrition</text>
-          </g>
-        </svg>
-      </div>
       <div class="holus-network-copy">
         <p class="eyebrow">How we work together</p>
         <h2>Everything connects.</h2>
-        <p>Eating is shaped by a network of biological, personal and environmental factors. We identify which connections matter most for you right now.</p>
-        <ul class="holus-network-points" aria-label="How we work together">
-          <li>See the whole picture</li><li>Choose priorities</li><li>Adapt over time</li>
-        </ul>
-        <a class="text-link" href="/nutrition-behaviour-change/">Explore nutrition &amp; behaviour change</a>
+        <p>We find what matters most for you, right now.</p>
+        <a class="text-link" href="/nutrition-behaviour-change/">How it works</a>
+      </div>
+      <div class="holus-network-visual holus-fan" role="list" aria-label="How we work together: see, choose, adapt">
+        <div class="fan-card" role="listitem"><div class="fan-art"><img src="assets/food-tea.svg" alt="" width="240" height="200"></div><b>See</b></div>
+        <div class="fan-card" role="listitem"><div class="fan-art"><img src="assets/food-apple.svg" alt="" width="240" height="200"></div><b>Choose</b></div>
+        <div class="fan-card" role="listitem"><div class="fan-art"><img src="assets/food-avocado.svg" alt="" width="240" height="200"></div><b>Adapt</b></div>
       </div>
     </div>`;
 
   const network = method.querySelector('.holus-network-visual');
+  if (!network) return;
   const reduceMotion = pageWindow.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion || !('IntersectionObserver' in pageWindow)) {
     network.classList.add('is-visible');

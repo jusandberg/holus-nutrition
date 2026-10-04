@@ -428,10 +428,10 @@ em { color: var(--sage); font-style: normal; }
   .who-figure img { height: 14rem; }
   .expect-list { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .expect-list li:not(:last-child)::after { display: none; }
-  .image-ribbon { grid-template-columns: 1fr 1fr; }
-  .image-ribbon figure:first-child { grid-column: 1 / -1; }
-  .image-ribbon figure:first-child { background: #EEF2ED; }
-  .image-ribbon figure:first-child img { height: 8rem; object-fit: contain; }
+  .image-ribbon { grid-template-columns: 1fr 1.35fr 1fr; }
+  .image-ribbon figure { background: #EEF2ED; border-radius: .9rem; }
+  .image-ribbon figure:nth-child(2) { background: #F7F8F6; }
+  .image-ribbon img { height: 6rem; object-fit: contain; }
   .services-intro { gap: 1.5rem; }
   .price-card { min-height: 18rem; }
   .footer-inner { display: grid; }
@@ -455,7 +455,7 @@ em { color: var(--sage); font-style: normal; }
   .flow-kicker { align-self: end; }
   .flow-step strong { align-self: start; }
   .image-ribbon { width: min(100% - 1.5rem, 88rem); gap: .45rem; }
-  .image-ribbon img { height: 8rem; }
+  .image-ribbon img { height: 5rem; }
   .who-list li { grid-template-columns: 1fr; gap: .35rem; }
   .who-panel { min-height: 15rem; }
   .expect-list { grid-template-columns: 1fr; gap: .5rem; }
@@ -580,4 +580,12 @@ em { color: var(--sage); font-style: normal; }
   .next-card { grid-template-columns: minmax(0, 1fr); }
   .next-art { width: 5rem; }
   .chip-link { flex: 1 1 auto; justify-content: center; }
+}
+
+/* Tighter spacing around the home hero, food ribbon and Who I help */
+#who.section-pad { padding-block: clamp(1.5rem, 3vw, 2.5rem) clamp(2.5rem, 5vw, 4.5rem); }
+.image-ribbon + #who { margin-top: 0; }
+#home + .image-ribbon { margin-top: clamp(.5rem, 2vw, 1.5rem); }
+@media (min-width: 761px) {
+  #home.hero { min-height: auto; padding-bottom: clamp(2rem, 4vw, 3.5rem); }
 }

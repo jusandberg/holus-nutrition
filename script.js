@@ -14,6 +14,18 @@ navigation?.querySelectorAll('a').forEach((link) => {
   });
 });
 
+// Phones: keep a small Book button in the header so booking is one tap away while scrolling
+(function () {
+  const shell = document.querySelector('.nav-shell');
+  const book = navigation?.querySelector('.button');
+  if (!shell || !book || shell.querySelector('.header-book')) return;
+  const quick = book.cloneNode(false);
+  quick.className = 'button button-small header-book';
+  quick.textContent = 'Book';
+  quick.setAttribute('aria-label', book.textContent.trim() || 'Book a consultation');
+  shell.insertBefore(quick, menuButton);
+})();
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealItems = document.querySelectorAll('.reveal');
 

@@ -29,7 +29,7 @@
     }
 
     function insuranceMarkup() {
-      return `<summary><span class="insurance-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6l7-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>Health Insurance Coverage</span></summary><p><strong>Extended health benefits:</strong> Many plans cover nutritional consulting. Coverage varies, so confirm directly with your provider. A receipt with the RNCP, NNCP and RRSW designations is issued after each session.</p>`;
+      return `<summary><span class="insurance-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6l7-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>Health Insurance Coverage</span></summary><p><strong>Extended health benefits:</strong> Many plans cover nutritional consulting. Coverage varies, so confirm directly with your provider. A receipt with the RNCP, NNCP and RSSW designations is issued after each session.</p>`;
     }
 
     function replaceText(root) {
@@ -57,7 +57,7 @@
           </div>
         </section>
 
-        <section class="behaviour-steps section-pad" aria-label="Three steps"><div class="section-shell"><ol class="step-cards"><li class="reveal"><figure><img src="../assets/food-tea.svg" alt="" width="240" height="200"></figure><p>Understand what’s happening.</p></li><li class="reveal"><figure><img src="../assets/food-apple.svg" alt="" width="240" height="200"></figure><p>Focus on what matters.</p></li><li class="reveal"><figure><img src="../assets/food-avocado.svg" alt="" width="240" height="200"></figure><p>Adjust as you go.</p></li></ol></div></section>
+        <section class="behaviour-steps section-pad" aria-label="Three steps"><div class="section-shell"><ul class="venn" aria-label="See, choose and adapt, with you at the centre"><li class="venn-circle v1"><img src="../assets/food-tea.svg" alt="" width="240" height="200"><strong>See</strong><span>Understand what’s happening.</span></li><li class="venn-circle v2"><img src="../assets/food-apple.svg" alt="" width="240" height="200"><strong>Choose</strong><span>Focus on what matters.</span></li><li class="venn-circle v3"><img src="../assets/food-avocado.svg" alt="" width="240" height="200"><strong>Adapt</strong><span>Adjust as you go.</span></li><li class="venn-core" aria-hidden="true">you</li></ul></div></section>
 
         <section class="behaviour-factors section-pad">
           <div class="section-shell">
@@ -116,14 +116,14 @@
         .services .brand-insurance[open] summary { border-color: var(--line); }
         .services .brand-insurance p { color: var(--muted); }
         .services .brand-insurance .insurance-title svg { stroke: var(--sage-deep); }
-        .brand-intro-chat { width: 100%; max-width: 68rem; margin: 2rem 0 0; padding: 1.4rem 1.55rem; color: var(--ink); border: 1px solid var(--line); border-radius: 1.25rem; background: var(--cloud); }
+        .brand-intro-chat { width: 100%; max-width: none; margin: 2rem 0 0; padding: 1.4rem 1.55rem; color: var(--ink); border: 1px solid var(--line); border-radius: 1.25rem; background: var(--cloud); }
         .brand-intro-chat p { margin: 0; }
         .brand-intro-chat p + p { margin-top: .4rem; }
         .brand-intro-chat a { display: inline-block; margin-top: .85rem; color: var(--ink); font-weight: 700; text-underline-offset: .28rem; }
         .services .price-card:nth-child(1) { background: #304250; border-color: rgba(199,210,196,.28); }
         .services .price-card:nth-child(2) { background: #3d4c4b; border-color: rgba(199,210,196,.32); }
         .services .price-card:nth-child(3) { background: #53684f; border-color: transparent; }
-        .services .pricing-grid { max-width: 68rem; }
+        .services .pricing-grid { max-width: none; }
         .services .price-card { min-height: 0 !important; aspect-ratio: 1 / 1; padding: 1.55rem !important; }
         .contact-actions { margin-top: 2.35rem !important; }
         .method-without-circles .method-layout { grid-template-columns: 1fr; }
@@ -358,7 +358,7 @@
                 <div class="accordion">
                   <details open><summary>What happens in a first consultation?</summary><p>We’ll talk through your nutrition, health, routines, preferences and goals, then identify clear priorities and practical next steps that fit your life.</p></details>
                   <details><summary>What is included in the Personalized Nutrition Package?</summary><p>A 60-minute consultation, a personalized 7-day meal plan and a 30-minute follow-up to review what is working and make adjustments.</p></details>
-                  <details><summary>Are appointments covered by health insurance?</summary><p>Many extended health plans cover nutritional consulting, but coverage varies. Confirm directly with your provider. A receipt with the RNCP, NNCP and RRSW designations is issued after each session.</p></details>
+                  <details><summary>Are appointments covered by health insurance?</summary><p>Many extended health plans cover nutritional consulting, but coverage varies. Confirm directly with your provider. A receipt with the RNCP, NNCP and RSSW designations is issued after each session.</p></details>
                   <details><summary>Do I need a diagnosis or referral?</summary><p>No. You can book directly. When something needs medical assessment or care beyond nutrition education, referral is a normal part of good care.</p></details>
                 </div>
               </div>

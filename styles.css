@@ -667,6 +667,12 @@ html, body { overflow-x: clip; }
 .hf-about-leaf { top: 3rem; right: 8%; width: 76px; --r: 20deg; }
 .hf-mid-sprig { top: 10%; right: 5%; width: 80px; --r: 22deg; }
 .hf-mid-lemon { top: 3rem; right: 9%; width: 76px; }
+.hf-nbc-leaf { top: 3rem; right: 8%; width: 90px; --r: 30deg; }
+.hf-nbc-sprig { top: 3rem; right: 10%; width: 100px; --r: -14deg; }
+.hf-nbc-berries { bottom: 1.25rem; right: 7%; width: 58px; }
+.hf-glp-peas { top: 10%; right: 5%; width: 76px; --r: -10deg; }
+.hf-glp-almond { top: 3rem; right: 10%; width: 46px; --r: 24deg; }
+.hf-dig-berries { top: .4rem; right: 6%; width: 64px; }
 /* Phones: smaller, peeking in from the edge */
 @media (max-width: 600px) {
   .hf-home-leaf, .hf-svc-almond { display: none; }
@@ -682,4 +688,10 @@ html, body { overflow-x: clip; }
   .hf-about-leaf { top: 2.4rem; right: -14px; width: 56px; }
   .hf-mid-sprig { top: 36rem; right: 2%; width: 56px; }
   .hf-mid-lemon { top: 2rem; right: -18px; width: 58px; }
+  .hf-nbc-leaf { top: 1rem; right: -14px; width: 56px; }
+  .hf-nbc-sprig { top: 1.6rem; right: -14px; width: 58px; }
+  .hf-nbc-berries { display: none; }
+  .hf-glp-peas { top: 36rem; right: 2%; width: 54px; }
+  .hf-glp-almond { top: 2rem; right: -8px; width: 40px; }
+  .hf-dig-berries { top: -.2rem; right: 2%; width: 48px; }
 }

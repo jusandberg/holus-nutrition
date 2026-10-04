@@ -69,6 +69,9 @@ whoTiles.forEach((tile) => {
     'nutritional-counselling': [['.page-hero', 'peas', 'svc-peas'], ['.page-hero', 'almond', 'svc-almond'], ['.expect', 'sprig', 'expect-sprig'], ['#faq', 'lemon', 'faq-lemon']],
     about: [['.page-hero', 'berries', 'about-berries'], ['.page-hero + .section-pad', 'leaf', 'about-leaf']],
     'midlife-nutrition': [['.page-hero', 'sprig', 'mid-sprig'], ['.page-hero + .section-pad', 'lemon', 'mid-lemon']],
+    'nutrition-behaviour-change': [['.behaviour-relationship', 'leaf-light', 'nbc-leaf'], ['.behaviour-factors', 'sprig', 'nbc-sprig'], ['.behaviour-factors', 'berries', 'nbc-berries']],
+    'glp1-nutrition-support': [['.page-hero', 'peas', 'glp-peas'], ['.page-hero + .section-pad', 'almond', 'glp-almond']],
+    digest: [['.next-step', 'berries', 'dig-berries']],
   };
   const script = document.currentScript;
   const assetBase = new URL('assets/', script ? script.src : location.href);

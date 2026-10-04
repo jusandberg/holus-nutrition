@@ -666,3 +666,20 @@ html, body { overflow-x: clip; }
 
 /* Closing band: space between the wordmark and the headline now the eyebrow is gone */
 #contact .brand-lockup { margin-bottom: clamp(.9rem, 2vw, 1.4rem); }
+
+/* What to expect: compact numbered timeline (horizontal on desktop, vertical on phones) */
+.expect-list { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.75rem; margin: clamp(2rem, 4vw, 3rem) 0 0; padding: 0; list-style: none; border-top: 0; }
+.expect-list::before { content: ""; position: absolute; top: .9rem; left: .9rem; right: .9rem; height: 1px; background: var(--sage-light); }
+.expect-list li { position: relative; display: flex; flex-direction: column; gap: .95rem; padding: 0; }
+.expect-list li::before, .expect-list li::after, .expect-list li:not(:last-child)::after { display: none; }
+.expect-list span { position: relative; z-index: 1; flex: 0 0 auto; display: grid; place-items: center; width: 1.8rem; height: 1.8rem; margin: 0; border-radius: 50%; background: var(--ink); color: #fff; font: 800 .8rem/1 Manrope, sans-serif; letter-spacing: 0; }
+.expect-list h3 { margin: 0; font-size: 1.05rem; line-height: 1.25; }
+.expect-list p { margin: .35rem 0 0; font-size: .9rem; line-height: 1.5; }
+@media (max-width: 900px) {
+  .expect-list { grid-template-columns: 1fr; gap: 1.15rem; }
+  .expect-list::before { top: .6rem; bottom: .6rem; left: .88rem; right: auto; width: 1px; height: auto; }
+  .expect-list li { flex-direction: row; align-items: flex-start; gap: .9rem; }
+  .expect-list span { margin-top: -.25rem; }
+  .expect-list h3 { font-size: 1rem; }
+  .expect-list p { margin-top: .2rem; font-size: .88rem; line-height: 1.45; }
+}

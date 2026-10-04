@@ -121,7 +121,7 @@ function applyConnectedWho(doc) {
       .holus-who-sticker img { width: 76%; height: auto; }
       .holus-who-stickers strong { display: block; margin-top: .85rem; color: var(--ink); font: 800 clamp(.92rem, 1.25vw, 1.05rem)/1.15 Manrope, sans-serif; letter-spacing: -.02em; }
       .holus-who-stickers small { display: block; margin-top: .3rem; color: var(--muted); font-size: .8rem; line-height: 1.4; }
-      .holus-who-stickers a strong::after { content: " →"; color: var(--sage-deep); }
+      .holus-who-stickers a strong::after { content: "\\00a0→"; color: var(--sage-deep); }
       @media (hover: hover) { .holus-who-stickers li:hover { transform: rotate(0deg) translateY(-5px); } }
       .holus-who-stickers a:focus-visible .holus-who-sticker { outline: 2px solid var(--sage); outline-offset: 4px; }
       @media (max-width: 900px) {
@@ -129,13 +129,11 @@ function applyConnectedWho(doc) {
         .holus-who-sticker { max-width: 9rem; }
       }
       @media (max-width: 600px) {
-        .holus-who-connected .section-shell { padding-right: 0; }
-        .holus-who-connected .holus-who-heading { padding-right: var(--gutter); margin-bottom: 1rem; }
-        .holus-who-stickers { display: flex; gap: .9rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; scrollbar-width: none; padding: .6rem var(--gutter) 1.2rem .3rem; }
-        .holus-who-stickers::-webkit-scrollbar { display: none; }
-        .holus-who-stickers li { flex: 0 0 8.4rem; scroll-snap-align: start; }
-        .holus-who-sticker { max-width: none; }
-        .holus-who-stickers small { font-size: .78rem; }
+        .holus-who-connected .holus-who-heading { margin-bottom: 1.25rem; }
+        .holus-who-stickers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem .75rem; padding-top: .25rem; }
+        .holus-who-sticker { max-width: 6.6rem; box-shadow: 0 8px 18px rgba(36,51,65,.1), 0 0 0 1px var(--line); }
+        .holus-who-stickers strong { margin-top: .6rem; font-size: .86rem; }
+        .holus-who-stickers small { font-size: .72rem; line-height: 1.3; }
       }
     `;
     doc.head.append(styles);

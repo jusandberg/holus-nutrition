@@ -123,6 +123,7 @@ function applyConnectedWho(doc) {
       .holus-who-item p { max-width: 15rem; margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
       .holus-who-item strong { color: var(--ink); font-weight: 750; }
       .holus-who-swipe { display: none; }
+      .holus-who-dots { display: none; }
       @media (max-width: 900px) {
         .holus-who-path { grid-template-columns: repeat(3, 1fr); gap: 2.75rem 1.5rem; }
         .holus-who-item:nth-child(3)::after { display: none; }
@@ -132,16 +133,16 @@ function applyConnectedWho(doc) {
         .holus-who-connected .section-shell { padding-right: 0; }
         .holus-who-connected .holus-who-heading { padding-right: var(--gutter); margin-bottom: 1.25rem; }
         .holus-who-connected .holus-who-heading h2 { max-width: 11ch; }
-        .holus-who-swipe { display: flex; align-items: center; gap: .45rem; margin: 0 0 1.4rem; color: var(--sage-deep); font: 700 .72rem/1.2 Manrope, sans-serif; letter-spacing: .09em; text-transform: uppercase; }
-        .holus-who-swipe::after { content: "\u2192"; font-size: 1rem; }
-        .holus-who-path { display: flex; gap: 0; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-width: none; padding: .2rem var(--gutter) .8rem 0; }
+        .holus-who-swipe { display: none; }
+        .holus-who-path { display: flex; gap: .65rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-width: none; padding: .2rem var(--gutter) .4rem 0; }
         .holus-who-path::-webkit-scrollbar { display: none; }
-        .holus-who-item { flex: 0 0 72vw; max-width: 18rem; min-height: 11.5rem; padding-right: 2rem; scroll-snap-align: start; }
-        .holus-who-item::after { display: block; left: 2.8rem; width: calc(100% - 2.8rem); }
-        .holus-who-item:last-child::after { display: none; }
-        .holus-who-item:nth-child(4)::before { display: none; }
-        .holus-who-icon { width: 2.55rem; height: 2.55rem; margin-bottom: 1.5rem; }
-        .holus-who-item p { max-width: 14rem; font-size: .94rem; }
+        .holus-who-item { flex: 0 0 74%; max-width: 18rem; min-height: 9.5rem; padding: 1.1rem 1.1rem 1.2rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--cloud); scroll-snap-align: start; }
+        .holus-who-item::after, .holus-who-item::before, .holus-who-item:nth-child(4)::before { display: none; }
+        .holus-who-icon { width: 2.35rem; height: 2.35rem; margin-bottom: 1.1rem; background: transparent; }
+        .holus-who-item p { max-width: none; font-size: .94rem; }
+        .holus-who-dots { display: flex; gap: .4rem; margin-top: .9rem; }
+        .holus-who-dots i { width: .4rem; height: .4rem; border-radius: 999px; background: var(--sage-light); transition: width .25s ease, background .25s ease; }
+        .holus-who-dots i.on { width: 1.15rem; background: var(--ink); }
       }
     `;
     doc.head.append(styles);
@@ -156,14 +157,26 @@ function applyConnectedWho(doc) {
       </header>
       <div class="holus-who-swipe" aria-hidden="true">Swipe to explore</div>
       <ul class="holus-who-path" aria-label="Nutrition support areas">
-        <li class="holus-who-item"><span class="holus-who-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m9 23 11-11m-7-4 11 11M16 5l11 11-5 5L11 10l5-5ZM6 26l5-2-3-3-2 5Z"/><path class="accent" d="M22.5 5.5 26.5 9.5"/></svg></span><p><strong>GLP-1 support</strong> alongside your healthcare provider.</p></li>
         <li class="holus-who-item"><span class="holus-who-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M25.5 6.5C14 7 7.5 13 7.5 21c0 3 2 5 5 5 8 0 13-7.5 13-19.5Z"/><path class="accent" d="M8.5 25c4-6 8-10 14-14"/><path d="m14 19 1-5m2 2 4 .5"/></svg></span><p><strong>Midlife nutrition</strong> for changing priorities.</p></li>
         <li class="holus-who-item"><span class="holus-who-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 7.5h15a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-8l-5 4v-4a3 3 0 0 1-2-3v-6a3 3 0 0 1 3-3Z"/><path class="accent" d="M11 12h7m-7 4h4"/><path d="M24 14.5h1a2 2 0 0 1 2 2v7l-3-2h-5"/></svg></span><p><strong>Conflicting advice</strong> made clearer.</p></li>
         <li class="holus-who-item"><span class="holus-who-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path class="accent" d="M16 9v7l5 3"/><path d="M16 5V3m11 13h2"/></svg></span><p><strong>Habits and routines</strong> built for real life.</p></li>
+        <li class="holus-who-item"><span class="holus-who-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m9 23 11-11m-7-4 11 11M16 5l11 11-5 5L11 10l5-5ZM6 26l5-2-3-3-2 5Z"/><path class="accent" d="M22.5 5.5 26.5 9.5"/></svg></span><p><strong>GLP-1 support</strong> alongside your healthcare provider.</p></li>
         <li class="holus-who-item"><span class="holus-who-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M11 5v6c0 4 12 3 12 8s-12 4-12 8M21 5v3M11 27v1"/><path class="accent" d="M11 12c3 1 7 0 9-2m-8 14c3-1 7 0 9 2"/></svg></span><p><strong>Digestion and sensitivities</strong> explored carefully.</p></li>
         <li class="holus-who-item"><span class="holus-who-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="20" cy="6" r="2.5"/><path d="m9 28 5-9 5 4 1 6M9 15l6-5 5 3 3 5M15 10l1.5 8"/><path class="accent" d="m5 21 5-2m14 2 4 2"/></svg></span><p><strong>Active lifestyles</strong> supported through nutrition.</p></li>
       </ul>
+      <div class="holus-who-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>`;
+
+  const path = who.querySelector('.holus-who-path');
+  const dots = [...who.querySelectorAll('.holus-who-dots i')];
+  const items = [...who.querySelectorAll('.holus-who-item')];
+  path.addEventListener('scroll', () => {
+    const left = path.getBoundingClientRect().left;
+    let current = 0;
+    items.forEach((item, index) => { if (item.getBoundingClientRect().left - left < item.offsetWidth / 2) current = index; });
+    if (path.scrollLeft + path.clientWidth >= path.scrollWidth - 4) current = items.length - 1;
+    dots.forEach((dot, index) => dot.classList.toggle('on', index === current));
+  }, { passive: true });
 }
 
 function applyLivingNetwork(doc, pageWindow) {

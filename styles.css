@@ -663,3 +663,6 @@ html, body { overflow-x: clip; }
 
 /* Food strip now sits just above the closing band */
 #method + #faq + .image-ribbon, .image-ribbon { margin-block: clamp(1.75rem, 3.5vw, 3rem); }
+
+/* Closing band: space between the wordmark and the headline now the eyebrow is gone */
+#contact .brand-lockup { margin-bottom: clamp(.9rem, 2vw, 1.4rem); }

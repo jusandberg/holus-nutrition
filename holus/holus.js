@@ -115,15 +115,13 @@ function applyConnectedWho(doc) {
       .holus-who-connected .holus-who-heading h2 { max-width: 13ch; }
       .holus-who-stickers { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(1rem, 2.4vw, 2rem); margin: 0; padding: .5rem 0 0; list-style: none; text-align: center; }
       .holus-who-stickers li { min-width: 0; transform: rotate(var(--rot, 0deg)); transition: transform .3s ease; }
-      .holus-who-stickers a, .holus-who-stickers .holus-who-sticker-wrap { display: block; color: inherit; text-decoration: none; }
+      .holus-who-stickers .holus-who-sticker-wrap { display: block; color: inherit; text-decoration: none; }
       .holus-who-sticker { display: grid; place-items: center; width: 100%; max-width: 10.5rem; aspect-ratio: 1; margin: 0 auto; border-radius: 50%; background: var(--paper, #fff); box-shadow: 0 12px 26px rgba(36,51,65,.12), 0 0 0 1px var(--line); }
       .holus-who-stickers li:nth-child(odd) .holus-who-sticker { background: var(--mist); }
       .holus-who-sticker img { width: 76%; height: auto; }
       .holus-who-stickers strong { display: block; margin-top: .85rem; color: var(--ink); font: 800 clamp(.92rem, 1.25vw, 1.05rem)/1.15 Manrope, sans-serif; letter-spacing: -.02em; }
       .holus-who-stickers small { display: block; margin-top: .3rem; color: var(--muted); font-size: .8rem; line-height: 1.4; }
-      .holus-who-stickers a strong::after { content: "\\00a0→"; color: var(--sage-deep); }
       @media (hover: hover) { .holus-who-stickers li:hover { transform: rotate(0deg) translateY(-5px); } }
-      .holus-who-stickers a:focus-visible .holus-who-sticker { outline: 2px solid var(--sage); outline-offset: 4px; }
       @media (max-width: 900px) {
         .holus-who-stickers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 1.25rem; }
         .holus-who-sticker { max-width: 9rem; }
@@ -147,10 +145,10 @@ function applyConnectedWho(doc) {
         <h2 id="who-title">Who I help.</h2>
       </header>
       <ul class="holus-who-stickers" aria-label="Who I help">
-        <li style="--rot:-5deg"><a href="midlife-nutrition/"><span class="holus-who-sticker"><img src="assets/food-mushroom.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Midlife</strong><small>for changing priorities</small></a></li>
+        <li style="--rot:-5deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-mushroom.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Midlife</strong><small>for changing priorities</small></span></li>
         <li style="--rot:4deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-peas.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Clear advice</strong><small>when the advice conflicts</small></span></li>
         <li style="--rot:-3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-oats.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Real routines</strong><small>built for real life</small></span></li>
-        <li style="--rot:5deg"><a href="glp1-nutrition-support/"><span class="holus-who-sticker"><img src="assets/food-egg.svg" alt="" width="240" height="200" loading="lazy"></span><strong>GLP-1 support</strong><small>alongside your provider</small></a></li>
+        <li style="--rot:5deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-egg.svg" alt="" width="240" height="200" loading="lazy"></span><strong>GLP-1 support</strong><small>alongside your provider</small></span></li>
         <li style="--rot:-4deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-broccoli.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Digestion</strong><small>explored carefully</small></span></li>
         <li style="--rot:3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-water.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Active lives</strong><small>fuel for training</small></span></li>
       </ul>

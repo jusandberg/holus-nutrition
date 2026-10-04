@@ -644,3 +644,42 @@ em { color: var(--sage); font-style: normal; }
 .v2 { top: 34.4%; left: 5%; justify-content: flex-start; padding: 17cqw 13cqw 0 0; background: rgba(238,242,237,1); box-shadow: inset 0 0 0 1px var(--line); }
 .v3 { top: 34.4%; left: 39%; justify-content: flex-start; padding: 17cqw 0 0 13cqw; background: rgba(113,131,109,.32); }
 .venn-core { position: absolute; top: 55.7%; left: 50%; z-index: 1; display: grid; width: clamp(3rem, 11%, 4.2rem); aspect-ratio: 1; margin: 0; place-items: center; border-radius: 50%; background: var(--ink); color: #fff; font: 800 clamp(.85rem, 2.2vw, 1.05rem)/1 Manrope, sans-serif; transform: translate(-50%, -50%); }
+
+/* ---- Floating food imagery (added by script.js; remove this block + FLOATS in script.js to revert) ---- */
+html, body { overflow-x: clip; }
+.hf-host { position: relative; isolation: isolate; }
+.hf { position: absolute; z-index: -1; height: auto; pointer-events: none; transform: rotate(var(--r, 0deg)); animation: hf-bob 7s ease-in-out infinite; }
+.hf:nth-of-type(2n) { animation-duration: 9s; animation-delay: -2s; }
+@keyframes hf-bob { 50% { transform: translateY(-8px) rotate(calc(var(--r, 0deg) + 4deg)); } }
+@media (prefers-reduced-motion: reduce) { .hf { animation: none; } }
+/* Desktop positions */
+.hf-home-lemon { top: 9%; left: 46%; width: 64px; --r: -12deg; }
+.hf-home-leaf { bottom: 24%; left: -4.5%; width: 40px; --r: -24deg; }
+.hf-who-sprig { top: 1.5rem; right: 9%; width: 84px; --r: 18deg; }
+.hf-method-berries { bottom: 12%; left: 7%; width: 84px; }
+.hf-contact-leaf1 { top: 14%; left: 9%; width: 88px; --r: -30deg; }
+.hf-contact-leaf2 { bottom: 12%; right: 10%; width: 66px; --r: 150deg; }
+.hf-svc-peas { top: 16%; right: 9%; width: 82px; --r: -8deg; }
+.hf-svc-almond { top: 9%; right: 33%; width: 38px; --r: 30deg; }
+.hf-expect-sprig { top: 4rem; right: 12%; width: 110px; --r: -16deg; }
+.hf-faq-lemon { bottom: 16%; left: 7%; width: 130px; --r: 10deg; }
+.hf-about-berries { top: 12%; left: 33%; width: 70px; --r: -10deg; }
+.hf-about-leaf { top: 3rem; right: 8%; width: 76px; --r: 20deg; }
+.hf-mid-sprig { top: 10%; right: 5%; width: 80px; --r: 22deg; }
+.hf-mid-lemon { top: 3rem; right: 9%; width: 76px; }
+/* Phones: smaller, peeking in from the edge */
+@media (max-width: 600px) {
+  .hf-home-leaf, .hf-svc-almond { display: none; }
+  .hf-home-lemon { top: 7.5rem; left: auto; right: -18px; width: 62px; }
+  .hf-who-sprig { top: .6rem; right: -12px; width: 58px; }
+  .hf-method-berries { top: 1.4rem; bottom: auto; left: auto; right: 4%; width: 52px; }
+  .hf-contact-leaf1 { top: 1.2rem; left: -14px; width: 60px; }
+  .hf-contact-leaf2 { bottom: 1.5rem; right: -10px; width: 48px; }
+  .hf-svc-peas { top: 6.4rem; right: -6px; width: 56px; }
+  .hf-expect-sprig { top: 2rem; right: -14px; width: 62px; }
+  .hf-faq-lemon { top: 1.6rem; bottom: auto; left: auto; right: -20px; width: 64px; }
+  .hf-about-berries { top: 9rem; left: auto; right: -6px; width: 58px; }
+  .hf-about-leaf { top: 2.4rem; right: -14px; width: 56px; }
+  .hf-mid-sprig { top: 36rem; right: 2%; width: 56px; }
+  .hf-mid-lemon { top: 2rem; right: -18px; width: 58px; }
+}

@@ -61,3 +61,36 @@ whoTiles.forEach((tile) => {
     whoPanel.querySelector('p').textContent = tile.dataset.description;
   });
 });
+
+// Floating food imagery. To remove: delete this block and the matching block at the end of styles.css.
+(function () {
+  const FLOATS = {
+    home: [['#home', 'lemon', 'home-lemon'], ['#home', 'leaf', 'home-leaf'], ['#who', 'sprig', 'who-sprig'], ['#method', 'berries', 'method-berries'], ['#contact', 'leaf-light', 'contact-leaf1'], ['#contact', 'leaf-light', 'contact-leaf2']],
+    'nutritional-counselling': [['.page-hero', 'peas', 'svc-peas'], ['.page-hero', 'almond', 'svc-almond'], ['.expect', 'sprig', 'expect-sprig'], ['#faq', 'lemon', 'faq-lemon']],
+    about: [['.page-hero', 'berries', 'about-berries'], ['.page-hero + .section-pad', 'leaf', 'about-leaf']],
+    'midlife-nutrition': [['.page-hero', 'sprig', 'mid-sprig'], ['.page-hero + .section-pad', 'lemon', 'mid-lemon']],
+  };
+  const script = document.currentScript;
+  const assetBase = new URL('assets/', script ? script.src : location.href);
+  const parts = location.pathname.split('/').filter(Boolean);
+  const last = parts[parts.length - 1] || '';
+  const key = /home\.html$/.test(last) || parts.length <= 1 && !document.querySelector('.page-hero') ? 'home' : last.replace(/\.html$/, '');
+  const list = FLOATS[key];
+  if (!list) return;
+  function place() {
+    list.forEach(([selector, image, id]) => {
+      const host = document.querySelector(selector);
+      if (!host || host.querySelector('.hf-' + id)) return;
+      host.classList.add('hf-host');
+      const img = document.createElement('img');
+      img.className = 'hf hf-' + id;
+      img.src = new URL('float-' + image + '.svg', assetBase).href;
+      img.alt = '';
+      img.setAttribute('aria-hidden', 'true');
+      img.decoding = 'async';
+      host.appendChild(img);
+    });
+  }
+  place();
+  window.addEventListener('load', () => { setTimeout(place, 50); setTimeout(place, 1200); });
+})();

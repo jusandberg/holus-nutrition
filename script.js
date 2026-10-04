@@ -67,7 +67,7 @@ whoTiles.forEach((tile) => {
 // [section, image, desktop side, desktop top, desktop size px, phone side, phone top, phone size px, tilt deg]
 (function () {
   const FLOATS = {
-    home: [['#home', 'strawberry', 'r', '1rem', 100, 'r', '8rem', 64, -14], ['#who', 'sprig', 'r', '1.5rem', 96, 'r', '.4rem', 58, 18], ['#method', 'berries', 'l', 'calc(100% - 9rem)', 92, 'r', '1.4rem', 56, 0], ['#contact', 'leaf-light', 'r', '2.5rem', 100, 'r', '1rem', 60, 150], ['#contact', 'leaf-light', 'l', '60%', 76, 'l', '72%', 48, -30]],
+    home: [['#home', 'strawberry', 'r', '1rem', 100, 'r', '8rem', 64, -14], ['#method', 'berries', 'l', 'calc(100% - 9rem)', 92, 'r', '1.4rem', 56, 0], ['#contact', 'leaf-light', 'r', '2.5rem', 100, 'r', '1rem', 60, 150], ['#contact', 'leaf-light', 'l', '60%', 76, 'l', '72%', 48, -30]],
     'nutritional-counselling': [['.page-hero', 'cherries', 'r', '3rem', 96, 'r', '6.4rem', 58, -8], ['.expect', 'carrot', 'r', '4rem', 104, 'r', '2rem', 60, -16], ['#faq', 'fig', 'l', 'calc(100% - 16rem)', 110, 'r', '1.6rem', 60, 10]],
     about: [['.page-hero', 'mint', 'r', '4rem', 92, 'r', '9rem', 58, -10], ['.page-hero + .section-pad', 'peas', 'l', 'calc(100% - 8rem)', 88, 'r', '2.4rem', 54, 20]],
     'midlife-nutrition': [['.page-hero', 'leaf', 'r', '4rem', 96, 'r', '30rem', 58, 22], ['.page-hero + .section-pad', 'cherries', 'l', 'calc(100% - 8rem)', 88, 'r', '2rem', 56, 0]],

@@ -657,8 +657,8 @@ html, body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { .hf { animation: none; } }
 @media (max-width: 600px) {
   .hf { top: var(--tm); width: var(--wm); }
-  .hf.hfm-l { left: calc(50% - 50vw - var(--wm) * .3); right: auto; }
-  .hf.hfm-r { right: calc(50% - 50vw - var(--wm) * .3); left: auto; }
+  .hf.hfm-l { left: calc(50% - 50vw + 6px); right: auto; }
+  .hf.hfm-r { right: calc(50% - 50vw + 6px); left: auto; }
 }
 
 /* Food strip now sits just above the closing band */

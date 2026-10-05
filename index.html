@@ -349,21 +349,6 @@
 
         if (services && pageHero) pageHero.insertAdjacentElement('afterend', services);
 
-        const main = doc.querySelector('main');
-        if (main && !doc.querySelector('#faq')) {
-          main.insertAdjacentHTML('beforeend', `
-            <section id="faq" class="faq section-pad">
-              <div class="section-shell faq-grid">
-                <div><p class="eyebrow">Good to know</p><h2>Frequently asked questions.</h2></div>
-                <div class="accordion">
-                  <details open><summary>What happens in a first consultation?</summary><p>We’ll talk through your nutrition, health, routines, preferences and goals, then identify clear priorities and practical next steps that fit your life.</p></details>
-                  <details><summary>What is included in the Personalized Nutrition Package?</summary><p>A 60-minute consultation, a personalized 7-day meal plan and a 30-minute follow-up to review what is working and make adjustments.</p></details>
-                  <details><summary>Are appointments covered by health insurance?</summary><p>Many extended health plans cover nutritional consulting, but coverage varies. Confirm directly with your provider. A receipt with the RNCP, NNCP and RSSW designations is issued after each session.</p></details>
-                  <details><summary>Do I need a diagnosis or referral?</summary><p>No. You can book directly. When something needs medical assessment or care beyond nutrition education, referral is a normal part of good care.</p></details>
-                </div>
-              </div>
-            </section>`);
-        }
       }
 
       const homeFaq = doc.querySelector('#faq');
@@ -373,7 +358,6 @@
 
       doc.querySelectorAll('a').forEach((link) => {
         const originalHref = link.getAttribute('href');
-        if (originalHref === '/faq/') { link.remove(); return; }
         if (originalHref === '/') link.setAttribute('href', sitePath('home.html'));
         else if (originalHref === '/#who') link.setAttribute('href', `${sitePath('home.html')}#who`);
         else if (originalHref?.startsWith('/') && !originalHref.startsWith('//') && !originalHref.startsWith(siteBase)) link.setAttribute('href', sitePath(originalHref));
@@ -393,6 +377,6 @@
 
     frame.addEventListener('load', transformSite);
   </script>
-  <script src="holus/holus.js?v=9"></script>
+  <script src="holus/holus.js?v=10"></script>
 </body>
 </html>

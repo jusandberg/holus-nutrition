@@ -750,7 +750,7 @@ html, body { overflow-x: clip; }
 .nutri-sites a { display: block; height: 100%; padding: 1rem 1.1rem; border-radius: 1rem; background: #fff; box-shadow: 0 0 0 1px var(--line); text-decoration: none; }
 .nutri-sites a:hover { box-shadow: 0 0 0 1.5px var(--sage); }
 .nutri-sites strong { display: block; color: var(--ink); font: 800 1rem/1.25 Manrope, sans-serif; }
-.nutri-sites strong::after { content: "\00a0↗"; color: var(--sage-deep); }
+.nutri-ext { color: var(--sage-deep); stroke-width: 1.8; }
 .nutri-sites span { display: block; margin-top: .25rem; color: var(--muted); font-size: .86rem; }
 @media (max-width: 760px) { .nutri-sites ul { grid-template-columns: 1fr; } }
 

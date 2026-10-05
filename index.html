@@ -11,13 +11,13 @@
     .loading { position: fixed; inset: 0; z-index: 2; display: grid; place-items: center; color: #4b5d49; background: #f4f0e7; font: 700 13px/1.2 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
     .ready .loading { display: none; }
   </style>
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#243341"><meta property="og:image" content="https://jusandberg.github.io/holus-nutrition/assets/holus-share.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="hōlus. Nutrition Counselling: Nutrition that begins with you.">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#243341"><meta property="og:image" content="https://jusandberg.github.io/holus-nutrition/assets/holus-share.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="hōlus. Nutrition Counselling: Nutrition in context.">
     </head>
 <body>
   <div class="loading" aria-live="polite">Preparing the site…</div>
   <iframe id="brand-site" src="home.html" title="Hōlus Nutrition Counselling website"></iframe>
 
-  <script src="brand-config.js?v=3"></script>
+  <script src="brand-config.js?v=4"></script>
   <script>
     const BRAND = window.BRAND_CONFIG;
     const frame = document.getElementById('brand-site');
@@ -29,7 +29,7 @@
     }
 
     function insuranceMarkup() {
-      return `<summary><span class="insurance-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6l7-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>Health Insurance Coverage</span></summary><p><strong>Extended health benefits:</strong> Many plans cover nutritional consulting. Coverage varies, so confirm directly with your provider. A receipt with the RNCP, NNCP and RSSW designations is issued after each session.</p>`;
+      return `<summary><span class="insurance-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6l7-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>Health Insurance Coverage</span></summary><p>Some extended health benefit plans include coverage for nutritional consulting. Coverage varies by plan and provider. Please confirm eligibility and reimbursement requirements directly with your insurer.</p><p>After each session, you’ll receive a receipt that lists Juliana’s professional designations (RNCP, NNCP, RSSW).</p>`;
     }
 
     function replaceText(root) {
@@ -62,12 +62,12 @@
         <section class="behaviour-factors section-pad">
           <div class="section-shell">
             <div class="section-heading"><p class="eyebrow">What we can look at together</p><h2>The things that shape eating in real life.</h2></div>
-            <div class="e-grid reveal"><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><circle class="fill" cx="18" cy="18" r="11"/><circle class="st" cx="16" cy="16" r="11"/><path class="st" d="M16 9v7l5 3"/></svg><div><h3>Routines &amp; cues</h3><p>The patterns around when, where and how you eat.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><rect class="fill" x="8" y="11" width="21" height="17" rx="4"/><rect class="st" x="5" y="8" width="22" height="19" rx="4"/><path class="st" d="M5 14h22M11 5v5M21 5v5"/></svg><div><h3>Real-life constraints</h3><p>What happens when work is busy, energy is low, schedules change or plans fall apart.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><path class="fill" d="M18 29s-10-6-10-13a6 6 0 0 1 10-4 6 6 0 0 1 10 4c0 7-10 13-10 13Z"/><path class="st" d="M16 27S6 21 6 14a6 6 0 0 1 10-4 6 6 0 0 1 10 4c0 7-10 13-10 13Z"/></svg><div><h3>Motivation</h3><p>What matters to you and what feels realistic enough to continue.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><rect class="fill" x="9" y="10" width="18" height="14" rx="7"/><path class="st" d="M5 15h22a11 11 0 0 1-22 0Z"/><path class="st" d="M12 10c0-2 2-2 2-4M18 10c0-2 2-2 2-4"/></svg><div><h3>Preferences</h3><p>Food you enjoy, cultural preferences, access, budget and convenience.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><rect class="fill" x="6" y="12" width="22" height="10" rx="5"/><path class="st" d="M4 16c3-6 6-6 8 0s5 6 8 0 5-6 8 0"/></svg><div><h3>Patterns</h3><p>Including all-or-nothing thinking around food and routines that can make consistency harder.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><circle class="fill" cx="21" cy="11" r="4"/><circle class="fill" cx="13" cy="22" r="4"/><path class="st" d="M5 10h22M5 22h22"/><circle class="st" cx="19" cy="10" r="3" fill="#fff"/><circle class="st" cx="11" cy="22" r="3" fill="#fff"/></svg><div><h3>Adjustments</h3><p>Small changes we can try, learn from and refine without expecting perfection immediately.</p></div></div></div>
+            <div class="e-grid reveal"><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><circle class="fill" cx="18" cy="18" r="11"/><circle class="st" cx="16" cy="16" r="11"/><path class="st" d="M16 9v7l5 3"/></svg><div><h3>Routines &amp; cues</h3><p>The patterns around when, where and how you eat.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><rect class="fill" x="8" y="11" width="21" height="17" rx="4"/><rect class="st" x="5" y="8" width="22" height="19" rx="4"/><path class="st" d="M5 14h22M11 5v5M21 5v5"/></svg><div><h3>Real-life constraints</h3><p>What happens when work is busy, energy is low, schedules change or plans fall apart.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><path class="fill" d="M18 29s-10-6-10-13a6 6 0 0 1 10-4 6 6 0 0 1 10 4c0 7-10 13-10 13Z"/><path class="st" d="M16 27S6 21 6 14a6 6 0 0 1 10-4 6 6 0 0 1 10 4c0 7-10 13-10 13Z"/></svg><div><h3>Motivation</h3><p>What matters to you and what feels realistic enough to continue.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><rect class="fill" x="9" y="10" width="18" height="14" rx="7"/><path class="st" d="M5 15h22a11 11 0 0 1-22 0Z"/><path class="st" d="M12 10c0-2 2-2 2-4M18 10c0-2 2-2 2-4"/></svg><div><h3>Preferences</h3><p>Food you enjoy, cultural preferences, access, budget and convenience.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><rect class="fill" x="6" y="12" width="22" height="10" rx="5"/><path class="st" d="M4 16c3-6 6-6 8 0s5 6 8 0 5-6 8 0"/></svg><div><h3>Patterns</h3><p>All-or-nothing approaches to food and routines that can make consistency harder.</p></div></div><div class="e-item"><svg class="duo" viewBox="0 0 32 32" aria-hidden="true"><circle class="fill" cx="21" cy="11" r="4"/><circle class="fill" cx="13" cy="22" r="4"/><path class="st" d="M5 10h22M5 22h22"/><circle class="st" cx="19" cy="10" r="3" fill="#fff"/><circle class="st" cx="11" cy="22" r="3" fill="#fff"/></svg><div><h3>Adjustments</h3><p>Small changes we can try, learn from and refine without expecting perfection immediately.</p></div></div></div>
           </div>
         </section>
 
 
-        <section class="next-step" aria-label="Next step"><div class="section-shell"><div class="next-card"><figure class="next-art"><img src="../assets/food-broccoli.svg" alt="" width="240" height="200"></figure><div class="next-copy"><p class="eyebrow">Keep exploring</p><h2>Turn it into a plan.</h2><p>Read the research behind it, or get to know me first.</p></div><div class="next-chips"><a class="chip-link chip-primary" href="/digest/">The Digest<svg class="arr arr-right" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a><a class="chip-link" href="/about/">About me<svg class="arr arr-right" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a></div></div></div></section>`;
+        <section class="next-step" aria-label="Next step"><div class="section-shell"><div class="next-card"><figure class="next-art"><img src="../assets/food-broccoli.svg" alt="" width="240" height="200"></figure><div class="next-copy"><p class="eyebrow">Keep exploring</p><h2>Learn more, at your own pace.</h2><p>Nutrient basics in the Digest, or a little more about how I work.</p></div><div class="next-chips"><a class="chip-link chip-primary" href="/digest/">The Digest<svg class="arr arr-right" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a><a class="chip-link" href="/about/">About me<svg class="arr arr-right" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a></div></div></div></section>`;
     }
 
     function transformSite() {
@@ -255,7 +255,7 @@
         contactLogo.replaceWith(wrapper.firstElementChild);
       }
       const contactTitle = contact?.querySelector('h2');
-      if (contactTitle && !isBehaviourPage) contactTitle.innerHTML = 'Nutrition in <em>context.</em>';
+      if (contactTitle && !isBehaviourPage) contactTitle.innerHTML = 'Start with a <em>conversation.</em>';
 
       doc.querySelectorAll('.quote-line').forEach((quote) => {
         if (quote.textContent.includes('To make nutrition easier to understand and easier to live')) quote.remove();
@@ -279,34 +279,13 @@
       const servicesIntro = services?.querySelector('.services-intro');
       const servicesTitle = servicesIntro?.querySelector('h2');
       const servicesSummary = servicesIntro?.querySelector(':scope > p');
-      if (servicesTitle) servicesTitle.textContent = isServicesPage ? 'Ways we can work together' : 'Support built around you.';
+      if (servicesTitle && !isServicesPage) servicesTitle.textContent = 'Support built around you.';
       if (servicesSummary) {
-        servicesSummary.textContent = isServicesPage
-          ? 'Choose the kind of support that makes sense for you.'
-          : 'Nutrition counselling looks at more than food. It helps you make practical choices that work with your health, routines, preferences, goals and real life.';
+        if (!isServicesPage) servicesSummary.textContent = 'Nutrition counselling looks at more than food. It helps you make practical choices that work with your health, routines, preferences, goals and real life.';
       }
 
       const pricingGrid = services?.querySelector('.pricing-grid');
       if (pricingGrid) {
-        pricingGrid.innerHTML = `
-          <article class="price-card">
-            <p class="duration">Initial consultation · 60 minutes — $145</p>
-            <h3>Nutrition &amp; Health Consultation</h3>
-            <p>A comprehensive conversation about your nutrition, health, routines, preferences and goals. We’ll identify what matters most and create practical, personalized next steps that fit your life.</p>
-            <div class="price-row"><a href="mailto:hello@holus.ca?subject=Initial%20nutrition%20consultation">Book <svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
-          </article>
-          <article class="price-card">
-            <p class="duration">Follow-up · 30 minutes — $80</p>
-            <h3>Nutrition Counselling Follow-Up</h3>
-            <p>A focused session to review progress, work through challenges, answer questions and adjust your recommendations as needed.</p>
-            <div class="price-row"><a href="mailto:hello@holus.ca?subject=Nutrition%20counselling%20follow-up">Book <svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
-          </article>
-          <article class="price-card featured">
-            <p class="duration">Consultation + 7-day meal plan + follow-up — <strong>$295</strong></p>
-            <h3>Personalized Nutrition Package</h3>
-            <p>A 60-minute consultation, a personalized 7-day meal plan built for your real life, and a 30-minute follow-up to review and adjust it together.</p>
-            <div class="price-row"><a href="mailto:hello@holus.ca?subject=Personalized%20nutrition%20package">Book <svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>
-          </article>`;
 
         const existingChat = services.querySelector('.brand-intro-chat');
         if (existingChat) existingChat.remove();
@@ -341,7 +320,7 @@
           aside.replaceWith(details);
         }
 
-        services?.querySelector('.coverage-note')?.remove();
+        services?.querySelectorAll('.coverage-note').forEach((note) => note.remove());
         [...doc.querySelectorAll('.prose p')].forEach((paragraph) => {
           if (paragraph.textContent.trim().startsWith('You do not need a perfectly defined goal or a diagnosis before you book')) paragraph.remove();
         });
@@ -372,6 +351,7 @@
         el.setAttribute('aria-label', el.getAttribute('aria-label').replaceAll('Hōlus Nutrition Counselling', BRAND.formalName));
       });
 
+      window.applyBooking?.(doc);
       document.documentElement.classList.add('ready');
     }
 

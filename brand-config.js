@@ -5,10 +5,31 @@
     name: 'hōlus.',
     formalName: 'Hōlus Nutrition Counselling',
     descriptor: 'Nutrition Counselling',
-    tagline: 'Nutrition that begins with you.',
+    tagline: 'Nutrition in context.',
     digestName: 'Hōlus Digest',
     favicon: 'favicon.svg'
   });
+
+  // Booking destinations. Leave as null to keep the email links (with their subject lines).
+  // To switch to an online booking platform, paste its URL here; every Book link updates.
+  const BOOKING = Object.freeze({
+    email: 'hello@holus.ca',
+    consultationUrl: null,
+    introChatUrl: null
+  });
+
+  const applyBooking = (root = document) => {
+    const prefix = `mailto:${BOOKING.email}?subject=`;
+    root.querySelectorAll(`a[href^="${prefix}"]`).forEach((link) => {
+      const subject = decodeURIComponent(link.getAttribute('href').slice(prefix.length)).toLowerCase();
+      const isChat = subject.includes('15-minute');
+      const url = isChat ? (BOOKING.introChatUrl || BOOKING.consultationUrl) : BOOKING.consultationUrl;
+      if (!url) return;
+      link.setAttribute('href', url);
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener');
+    });
+  };
 
   const wordmarkMarkup = (includeDescriptor = true) => `
     <span class="brand-lockup">
@@ -47,9 +68,12 @@
     });
 
     applyProjectPageLinks(root);
+    applyBooking(root);
   };
 
   window.BRAND_CONFIG = BRAND_CONFIG;
+  window.BOOKING = BOOKING;
+  window.applyBooking = applyBooking;
   window.brandWordmarkMarkup = wordmarkMarkup;
   window.applyBranding = applyBranding;
 

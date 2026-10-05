@@ -646,19 +646,27 @@ em { color: var(--sage); font-style: normal; }
 .venn-core { position: absolute; top: 55.7%; left: 50%; z-index: 1; display: grid; width: clamp(3rem, 11%, 4.2rem); aspect-ratio: 1; margin: 0; place-items: center; border-radius: 50%; background: var(--ink); color: #fff; font: 800 clamp(.85rem, 2.2vw, 1.05rem)/1 Manrope, sans-serif; transform: translate(-50%, -50%); }
 
 /* ---- Floating food imagery (added by script.js; remove this block + FLOATS in script.js to revert) ---- */
-/* Floats sit at the screen edges, about a third tucked out of view, behind the content. */
+/* Floats sit fully on screen near the left or right edge, in the empty space above each section's first line. */
 html, body { overflow-x: clip; }
 .hf-host { position: relative; isolation: isolate; }
-.hf { position: absolute; z-index: -1; top: var(--t); width: var(--w); height: auto; pointer-events: none; transform: rotate(var(--r, 0deg)); animation: hf-bob 7s ease-in-out infinite; }
-.hf-l { left: calc(50% - 50vw - var(--w) * .2); }
-.hf-r { right: calc(50% - 50vw - var(--w) * .2); }
+.hf { position: absolute; z-index: -1; top: .6rem; width: min(var(--w), 4.4rem); height: auto; pointer-events: none; transform: rotate(var(--r, 0deg)); animation: hf-bob 7s ease-in-out infinite; }
+.hf-l { left: calc(50% - 50vw + 18px); }
+.hf-r { right: calc(50% - 50vw + 18px); }
 .hf[data-n="1"], .hf[data-n="3"] { animation-duration: 9s; animation-delay: -2s; }
 @keyframes hf-bob { 50% { transform: translateY(-8px) rotate(calc(var(--r, 0deg) + 4deg)); } }
 @media (prefers-reduced-motion: reduce) { .hf { animation: none; } }
+@media (max-width: 1100px) {
+  /* Tablets and small laptops: margins are narrow, so keep floats small and on the right, away from left-aligned labels */
+  .hf { top: .35rem; width: min(var(--w), 3rem); }
+  .hf.hf-l { left: auto; right: calc(50% - 50vw + 12px); }
+  .hf ~ .hf, .next-step > .hf { display: none; }
+}
 @media (max-width: 600px) {
-  .hf { top: var(--tm); width: var(--wm); }
-  .hf.hfm-l { left: 4px; right: auto; }
-  .hf.hfm-r { right: 4px; left: auto; }
+  /* Phones: small, fully on screen, tucked into the empty space above each section's first line */
+  .hf { top: .35rem; width: min(var(--wm), 2.9rem); }
+  .hf.hfm-l { left: 10px; right: auto; }
+  .hf.hfm-r { right: 10px; left: auto; }
+  .hf ~ .hf, .next-step > .hf { display: block; }
 }
 
 /* Food strip now sits just above the closing band */

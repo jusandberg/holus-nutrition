@@ -341,7 +341,7 @@
         else if (originalHref === '/#who') link.setAttribute('href', `${sitePath('home.html')}#who`);
         else if (originalHref?.startsWith('/') && !originalHref.startsWith('//') && !originalHref.startsWith(siteBase)) link.setAttribute('href', sitePath(originalHref));
         if (link.textContent.trim().toLowerCase().startsWith('learn more')) { link.remove(); return; }
-        if (link.closest('.site-nav') && link.getAttribute('href')?.includes('/nutrition-behaviour-change/')) link.textContent = 'Nutrition & behaviour';
+        if (link.closest('.site-nav') && link.getAttribute('href')?.includes('/nutrition-behaviour-change/')) link.textContent = 'Approach';
         if (link.closest('.site-nav') && link.getAttribute('href')?.includes('/digest/')) link.textContent = 'Digest';
         if (link.textContent.includes('discovery call')) link.textContent = link.textContent.replace('discovery call', 'introductory chat');
         if (link.href.includes('discovery%20call')) link.href = link.href.replace('discovery%20call', 'introductory%20chat');

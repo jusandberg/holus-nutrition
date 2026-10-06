@@ -48,7 +48,7 @@
       main.innerHTML = `
         <section class="behaviour-relationship section-pad">
           <div class="section-shell">
-            <div class="behaviour-relationship-copy"><p class="eyebrow">Physiology + behaviour</p><h1>Your biology and your life both matter.</h1><p>Nutrition counselling can consider physiological needs while also paying attention to the circumstances in which eating actually happens.</p><p>A recommendation is only useful if it is nutritionally appropriate and realistic enough to put into practice.</p></div>
+            <div class="behaviour-relationship-copy"><p class="eyebrow">Physiology + behaviour</p><h1>Your biology and your life both matter.</h1><p>Nutrition Counselling can consider physiological needs while also paying attention to the circumstances in which eating actually happens.</p><p>A recommendation is only useful if it is nutritionally appropriate and realistic enough to put into practice.</p></div>
             <div class="relationship-map reveal" aria-label="Physiology plus real life leads to practical nutrition">
               <div><h3>Physiology</h3><p>appetite · energy · nutritional needs · life stage</p></div><b>+</b>
               <div><h3>Real life</h3><p>routines · preferences · environment · motivation</p></div><b>→</b>
@@ -228,7 +228,7 @@
             label.textContent = 'Physiology + behaviour';
             copyTitle.before(label);
           }
-          if (copyParagraphs[0]) copyParagraphs[0].textContent = 'Nutrition counselling can consider physiological needs while also paying attention to the circumstances in which eating actually happens.';
+          if (copyParagraphs[0]) copyParagraphs[0].textContent = 'Nutrition Counselling can consider physiological needs while also paying attention to the circumstances in which eating actually happens.';
           if (copyParagraphs[1]) copyParagraphs[1].textContent = 'A recommendation is only useful if it is nutritionally appropriate and realistic enough to put into practice.';
         }
       }
@@ -280,7 +280,7 @@
       const servicesSummary = servicesIntro?.querySelector(':scope > p');
       if (servicesTitle && !isServicesPage) servicesTitle.textContent = 'Support built around you.';
       if (servicesSummary) {
-        if (!isServicesPage) servicesSummary.textContent = 'Nutrition counselling looks at more than food. It helps you make practical choices that work with your health, routines, preferences, goals and real life.';
+        if (!isServicesPage) servicesSummary.textContent = 'Nutrition Counselling looks at more than food. It helps you make practical choices that work with your health, routines, preferences, goals and real life.';
       }
 
       const pricingGrid = services?.querySelector('.pricing-grid');
@@ -308,7 +308,7 @@
         const pageTitle = pageHero?.querySelector('.page-hero-copy h1');
         const pageSummary = pageHero?.querySelector('.page-hero-copy > p:not(.eyebrow)');
         if (pageTitle) pageTitle.textContent = 'Support built around you.';
-        if (pageSummary) pageSummary.textContent = 'Nutrition counselling looks at more than food. It helps you make practical choices that work with your health, routines, preferences, goals and real life.';
+        if (pageSummary) pageSummary.textContent = 'Nutrition Counselling looks at more than food. It helps you make practical choices that work with your health, routines, preferences, goals and real life.';
 
         const aside = pageHero?.querySelector('.page-hero-aside');
         if (aside) {
@@ -358,6 +358,6 @@
 
     frame.addEventListener('load', transformSite);
   </script>
-  <script src="holus/holus.js?v=13"></script>
+  <script src="holus/holus.js?v=14"></script>
 </body>
 </html>

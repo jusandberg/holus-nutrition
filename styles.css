@@ -730,14 +730,14 @@ html, body { overflow-x: clip; }
 .nutri-stickers button:focus-visible .nutri-sticker { outline: 2px solid var(--sage); outline-offset: 4px; }
 @media (hover: hover) { .nutri-stickers li:hover { transform: rotate(0deg) translateY(-4px); } }
 .nutri-cards { margin-top: 1.75rem; }
-.nutri-card { padding: clamp(1.1rem, 3vw, 1.75rem); border-radius: 1.5rem; background: var(--cloud); box-shadow: 0 0 0 1px var(--line); }
+.nutri-card { padding: clamp(1.1rem, 3vw, 1.75rem); border-radius: 1.5rem; background: var(--cloud); }
 .nutri-card-top { display: flex; align-items: center; gap: 1.1rem; margin-bottom: 1.1rem; }
 .nutri-card-top .nutri-sticker { flex: 0 0 auto; width: 6rem; max-width: none; margin: 0; background: #fff; }
 .nutri-pill { display: inline-block; padding: .15rem .6rem; border-radius: 999px; background: var(--sage-light); color: var(--ink); font: 700 .68rem/1.5 Manrope, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
 .nutri-card h2 { margin: .3rem 0 .25rem; font-size: clamp(1.6rem, 3.5vw, 2.1rem); line-height: 1.05; letter-spacing: -.035em; }
 .nutri-card-top p { margin: 0; color: var(--muted); }
 .nutri-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
-.nutri-blk { padding: 1rem 1.15rem; border-radius: 1rem; background: #fff; box-shadow: 0 0 0 1px var(--line); }
+.nutri-blk { padding: 1rem 1.15rem; border-radius: 1rem; background: #fff; }
 .nutri-blk h3 { margin: 0 0 .55rem; color: var(--sage-deep); font: 800 .76rem/1 Manrope, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
 .nutri-blk ul { margin: 0; padding-left: 1.1rem; font-size: .95rem; }
 .nutri-blk li { margin: .25rem 0; }

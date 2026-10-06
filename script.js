@@ -103,3 +103,17 @@ whoTiles.forEach((tile) => {
   place();
   window.addEventListener('load', () => { setTimeout(place, 50); setTimeout(place, 1200); });
 })();
+
+// Venn diagram: play the entrance when it scrolls into view.
+window.holusAnimateVenn = (root = document) => {
+  const venn = root.querySelector('.venn');
+  if (!venn || venn.classList.contains('venn-anim')) return;
+  const view = root.defaultView || window;
+  if (!('IntersectionObserver' in view)) return;
+  venn.classList.add('venn-anim');
+  const io = new view.IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) { venn.classList.add('venn-in'); io.disconnect(); }
+  }, { threshold: 0.35 });
+  io.observe(venn);
+};
+window.holusAnimateVenn(document);

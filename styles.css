@@ -645,6 +645,24 @@ em { color: var(--sage); font-style: normal; }
 .v3 { top: 34.4%; left: 39%; justify-content: flex-start; padding: 17cqw 0 0 13cqw; background: rgba(113,131,109,.32); }
 .venn-core { position: absolute; top: 55.7%; left: 50%; z-index: 1; display: grid; width: clamp(3rem, 11%, 4.2rem); aspect-ratio: 1; margin: 0; place-items: center; border-radius: 50%; background: var(--ink); color: #fff; font: 800 clamp(.85rem, 2.2vw, 1.05rem)/1 Manrope, sans-serif; transform: translate(-50%, -50%); }
 
+/* Venn: gentle entrance, then a slow drift (motion only when allowed) */
+@media (prefers-reduced-motion: no-preference) {
+  .venn-anim .venn-circle { transition: transform 1.2s cubic-bezier(.2,.8,.2,1), opacity .9s ease; }
+  .venn-anim .venn-core { transition: scale .7s cubic-bezier(.3,1.4,.5,1) .75s, opacity .5s ease .75s; }
+  .venn-anim:not(.venn-in) .v1 { opacity: 0; transform: translateY(-9%); }
+  .venn-anim:not(.venn-in) .v2 { opacity: 0; transform: translate(-9%, 6%); }
+  .venn-anim:not(.venn-in) .v3 { opacity: 0; transform: translate(9%, 6%); }
+  .venn-anim:not(.venn-in) .venn-core { opacity: 0; scale: .5; }
+  .venn-in .v1 { animation: venn-drift-a 9s ease-in-out 1.4s infinite alternate; }
+  .venn-in .v2 { animation: venn-drift-b 10s ease-in-out 1.6s infinite alternate; }
+  .venn-in .v3 { animation: venn-drift-c 11s ease-in-out 1.5s infinite alternate; }
+  .venn-in .venn-core { animation: venn-pulse 3.6s ease-out 2s infinite; }
+}
+@keyframes venn-drift-a { to { translate: 0 1.6%; } }
+@keyframes venn-drift-b { to { translate: 1.4% -1%; } }
+@keyframes venn-drift-c { to { translate: -1.4% -1%; } }
+@keyframes venn-pulse { 0% { box-shadow: 0 0 0 0 rgba(36,51,65,.28); } 70%, 100% { box-shadow: 0 0 0 14px rgba(36,51,65,0); } }
+
 /* ---- Floating food imagery (added by script.js; remove this block + FLOATS in script.js to revert) ---- */
 /* Floats sit fully on screen near the left or right edge, in the empty space above each section's first line. */
 html, body { overflow-x: clip; }

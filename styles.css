@@ -777,7 +777,7 @@ html, body { overflow-x: clip; }
 @media (max-width: 600px) { #contact.section-pad { padding-bottom: 7rem; } #contact .hf.hfm-r { bottom: .9rem; right: auto; left: calc(50% - 1.45rem); } }
 
 /* Services pricing as a simple menu (rows) */
-.services .pricing-grid { display: block; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,.16); }
+.services .pricing-grid { display: block; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.16); }
 .services .price-card { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.45fr) auto; grid-template-areas: "dur desc price" "name desc price"; column-gap: 2.75rem; align-items: center; min-height: 0; padding: 1.9rem 0; border: 0; border-bottom: 1px solid rgba(255,255,255,.16); border-radius: 0; background: none; }
 .services .price-card .duration { grid-area: dur; align-self: end; margin: 0 0 .45rem; }
 .services .price-card h3 { grid-area: name; align-self: start; margin: 0; }
@@ -800,3 +800,9 @@ html, body { overflow-x: clip; }
   .services .price-chat { padding: 1.4rem; }
   .services .price-chat .price-row a { background: var(--ink); color: #fff; }
 }
+
+/* Home icon in the menu */
+.site-nav > a.nav-home { display: inline-flex; align-items: center; gap: .55rem; }
+.nav-home svg { width: 1.05rem; height: 1.05rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav-home-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 900px) { .nav-home-label { position: static; width: auto; height: auto; overflow: visible; clip: auto; } }

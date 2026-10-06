@@ -79,11 +79,11 @@ function rewriteHolusPolicies(doc) {
         <h3>Client responsibilities</h3>
         <p>Clients are responsible for providing accurate and relevant information, communicating changes that may affect their nutrition needs, attending scheduled appointments and consulting appropriate medical professionals when necessary.</p>
         <h3>Appointments and payments</h3>
-        <p>Appointment durations, fees and available services are displayed during booking. Applicable fees and payment requirements will be communicated before your appointment.</p>
+        <p>Appointment durations and fees are listed on the Services page. Applicable fees and payment requirements will be confirmed before your appointment.</p>
         <div id="cancellation">
           <h3>Cancellations and rescheduling</h3>
           <p>Appointments may be cancelled or rescheduled with at least 24 hours' notice.</p>
-          <p>Cancellations made with less than 24 hours' notice and missed appointments may be subject to the applicable cancellation fee disclosed during booking. Exceptions may be considered for emergencies at the practitioner's discretion.</p>
+          <p>Cancellations made with less than 24 hours' notice and missed appointments may be subject to a cancellation fee, which will be communicated when you book. Exceptions may be considered for emergencies at the practitioner's discretion.</p>
         </div>
         <h3>Educational resources</h3>
         <p>Website articles, downloadable materials and other educational content are provided for general information. They are not individualized medical advice.</p>
@@ -97,7 +97,6 @@ function rewriteHolusPolicies(doc) {
 
       <section id="contact-policy" class="policy-card">
         <p><strong>Last updated:</strong> October 3, 2026</p>
-        <p><small>These policies should be reviewed before publication to ensure they accurately reflect the practice's booking system, payment processing, privacy procedures, professional credentials and applicable legal requirements.</small></p>
       </section>
     </div>`;
 }
@@ -116,22 +115,19 @@ function applyConnectedWho(doc) {
       .holus-who-stickers { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(1rem, 2.4vw, 2rem); margin: 0; padding: .5rem 0 0; list-style: none; text-align: center; }
       .holus-who-stickers li { min-width: 0; transform: rotate(var(--rot, 0deg)); transition: transform .3s ease; }
       .holus-who-stickers .holus-who-sticker-wrap { display: block; color: inherit; text-decoration: none; }
-      .holus-who-sticker { display: grid; place-items: center; width: 100%; max-width: 10.5rem; aspect-ratio: 1; margin: 0 auto; border-radius: 50%; background: var(--paper, #fff); box-shadow: 0 12px 26px rgba(36,51,65,.12), 0 0 0 1px var(--line); }
-      .holus-who-stickers li:nth-child(odd) .holus-who-sticker { background: var(--mist); }
-      .holus-who-sticker img { width: 76%; height: auto; }
+      .holus-who-sticker { display: grid; place-items: center; width: 100%; max-width: 9rem; margin: 0 auto; }
+      .holus-who-sticker img { width: 100%; height: auto; }
       .holus-who-stickers strong { display: block; margin-top: .85rem; color: var(--ink); font: 800 clamp(.92rem, 1.25vw, 1.05rem)/1.15 Manrope, sans-serif; letter-spacing: -.02em; }
-      .holus-who-stickers small { display: block; margin-top: .3rem; color: var(--muted); font-size: .8rem; line-height: 1.4; }
       @media (hover: hover) { .holus-who-stickers li:hover { transform: rotate(0deg) translateY(-5px); } }
       @media (max-width: 900px) {
         .holus-who-stickers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 1.25rem; }
-        .holus-who-sticker { max-width: 9rem; }
+        .holus-who-sticker { max-width: 8rem; }
       }
       @media (max-width: 600px) {
         .holus-who-connected .holus-who-heading { margin-bottom: 1.25rem; }
         .holus-who-stickers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem .75rem; padding-top: .25rem; }
-        .holus-who-sticker { max-width: 6.6rem; box-shadow: 0 8px 18px rgba(36,51,65,.1), 0 0 0 1px var(--line); }
+        .holus-who-sticker { max-width: 6rem; }
         .holus-who-stickers strong { margin-top: .6rem; font-size: .86rem; }
-        .holus-who-stickers small { font-size: .72rem; line-height: 1.3; }
       }
     `;
     doc.head.append(styles);
@@ -145,12 +141,12 @@ function applyConnectedWho(doc) {
         <h2 id="who-title">Who I help.</h2>
       </header>
       <ul class="holus-who-stickers" aria-label="Who I help">
-        <li style="--rot:-5deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-mushroom.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Midlife</strong><small>for changing priorities</small></span></li>
-        <li style="--rot:4deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-peas.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Clear advice</strong><small>when the advice conflicts</small></span></li>
-        <li style="--rot:-3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-oats.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Real routines</strong><small>built for real life</small></span></li>
-        <li style="--rot:5deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-egg.svg" alt="" width="240" height="200" loading="lazy"></span><strong>GLP-1 support</strong><small>alongside your provider</small></span></li>
-        <li style="--rot:-4deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-broccoli.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Digestion</strong><small>explored carefully</small></span></li>
-        <li style="--rot:3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-water.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Active lives</strong><small>fuel for training</small></span></li>
+        <li style="--rot:-5deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-mushroom.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Midlife</strong></span></li>
+        <li style="--rot:4deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-peas.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Clear advice</strong></span></li>
+        <li style="--rot:-3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-oats.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Real routines</strong></span></li>
+        <li style="--rot:5deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-egg.svg" alt="" width="240" height="200" loading="lazy"></span><strong>GLP-1 support</strong></span></li>
+        <li style="--rot:-4deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-broccoli.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Digestion</strong></span></li>
+        <li style="--rot:3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-water.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Active lives</strong></span></li>
       </ul>
     </div>`;
 }

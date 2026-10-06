@@ -138,15 +138,15 @@ function applyConnectedWho(doc) {
   who.innerHTML = `
     <div class="section-shell">
       <header class="holus-who-heading">
-        <h2 id="who-title">Who I help.</h2>
+        <h2 id="who-title">What I help with.</h2>
       </header>
-      <ul class="holus-who-stickers" aria-label="Who I help">
-        <li style="--rot:-5deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-mushroom.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Midlife</strong></span></li>
-        <li style="--rot:4deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-peas.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Clear advice</strong></span></li>
-        <li style="--rot:-3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-oats.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Real routines</strong></span></li>
-        <li style="--rot:5deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-egg.svg" alt="" width="240" height="200" loading="lazy"></span><strong>GLP-1 support</strong></span></li>
+      <ul class="holus-who-stickers" aria-label="What I help with">
+        <li style="--rot:-5deg"><a class="holus-who-sticker-wrap" href="midlife-nutrition/"><span class="holus-who-sticker"><img src="assets/food-mushroom.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Midlife changes</strong></a></li>
+        <li style="--rot:4deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-peas.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Conflicting advice</strong></span></li>
+        <li style="--rot:-3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-oats.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Everyday routines</strong></span></li>
+        <li style="--rot:5deg"><a class="holus-who-sticker-wrap" href="glp1-nutrition-support/"><span class="holus-who-sticker"><img src="assets/food-egg.svg" alt="" width="240" height="200" loading="lazy"></span><strong>GLP-1 support</strong></a></li>
         <li style="--rot:-4deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-broccoli.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Digestion</strong></span></li>
-        <li style="--rot:3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-water.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Active lives</strong></span></li>
+        <li style="--rot:3deg"><span class="holus-who-sticker-wrap"><span class="holus-who-sticker"><img src="assets/food-water.svg" alt="" width="240" height="200" loading="lazy"></span><strong>Active living</strong></span></li>
       </ul>
     </div>`;
 }

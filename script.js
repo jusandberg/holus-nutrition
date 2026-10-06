@@ -12,7 +12,7 @@ menuButton?.addEventListener('click', () => {
   if (!navigation || navigation.querySelector('.nav-home') || document.querySelector('#home.hero')) return;
   const home = document.createElement('a');
   home.className = 'nav-home';
-  home.href = '/';
+  home.href = document.querySelector('.brand')?.getAttribute('href') || '/';
   home.setAttribute('aria-label', 'Home');
   home.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg><span class="nav-home-label">Home</span>';
   navigation.prepend(home);

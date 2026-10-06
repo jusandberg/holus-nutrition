@@ -38,7 +38,7 @@ function rewriteHolusPolicies(doc) {
     <div class="policy-stack">
       <section id="privacy" class="policy-card">
         <h2>1. Privacy Policy</h2>
-        <p>At ${FORMAL_NAME}, your privacy matters. We collect personal information necessary to provide nutrition counselling and related services.</p>
+        <p>At ${FORMAL_NAME}, your privacy matters. We collect personal information necessary to provide Nutrition Counselling and related services.</p>
         <h3>Information we collect</h3>
         <p>Depending on your interactions with us, this may include:</p>
         <ul>
@@ -64,7 +64,7 @@ function rewriteHolusPolicies(doc) {
         <p>Depending on your needs and the practitioner's qualifications, services may include nutritional assessments, dietary reviews, personalized nutrition recommendations, meal planning, supplement education, practical lifestyle strategies and follow-up support.</p>
         <p>Our approach considers your biology, preferences, goals, behaviours and everyday circumstances.</p>
         <h3>Professional boundaries</h3>
-        <p>Nutrition counselling is not a substitute for medical assessment, diagnosis or treatment.</p>
+        <p>Nutrition Counselling is not a substitute for medical assessment, diagnosis or treatment.</p>
         <p>Services do not include diagnosing medical conditions, prescribing medication, changing prescribed treatments or independently interpreting medical tests for diagnostic purposes.</p>
         <p>Where appropriate, clients may be referred to or encouraged to collaborate with qualified healthcare professionals.</p>
         <p>Recommendations are provided within the practitioner's training, qualifications and applicable professional scope.</p>

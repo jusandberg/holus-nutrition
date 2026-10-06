@@ -120,11 +120,7 @@
         .brand-intro-chat p { margin: 0; }
         .brand-intro-chat p + p { margin-top: .4rem; }
         .brand-intro-chat a { display: inline-block; margin-top: .85rem; color: var(--ink); font-weight: 700; text-underline-offset: .28rem; }
-        .services .price-card:nth-child(1) { background: #304250; border-color: rgba(199,210,196,.28); }
-        .services .price-card:nth-child(2) { background: #3d4c4b; border-color: rgba(199,210,196,.32); }
-        .services .price-card:nth-child(3) { background: #53684f; border-color: transparent; }
         .services .pricing-grid { max-width: none; }
-        .services .price-card { min-height: 0 !important; aspect-ratio: 1 / 1; padding: 1.55rem !important; }
         .contact-actions { margin-top: 2.35rem !important; }
         .method-without-circles .method-layout { grid-template-columns: 1fr; }
         .method-without-circles .method-copy { max-width: 52rem; }
@@ -175,7 +171,6 @@
           .relationship-map { grid-template-columns: 1fr; gap: .55rem; }
           .relationship-map > b { transform: rotate(90deg); transform-origin: left center; }
           .relationship-map > div { min-height: 0; }
-          .services .price-card { aspect-ratio: auto; min-height: 17rem !important; }
         }
       `;
       doc.head.appendChild(style);
@@ -287,12 +282,13 @@
       const pricingGrid = services?.querySelector('.pricing-grid');
       if (pricingGrid) {
 
-        const existingChat = services.querySelector('.brand-intro-chat');
-        if (existingChat) existingChat.remove();
-        const chat = doc.createElement('aside');
-        chat.className = 'brand-intro-chat';
-        chat.innerHTML = `<p><strong>Not sure where to start?</strong></p><p>Book a complimentary <strong>15-minute introductory chat</strong> to ask questions and see whether working together feels like a good fit.</p><a href="mailto:hello@holus.ca?subject=Free%2015-minute%20introductory%20chat">Book a free 15-minute chat →</a>`;
-        pricingGrid.insertAdjacentElement('afterend', chat);
+        services.querySelector('.brand-intro-chat')?.remove();
+        if (!pricingGrid.querySelector('.price-chat')) {
+          const chat = doc.createElement('article');
+          chat.className = 'price-card price-chat';
+          chat.innerHTML = `<p class="duration">Free · 15 minutes</p><h3>Not sure where to start?</h3><p>A short introductory chat to ask questions and see whether working together feels like a good fit.</p><div class="price-row"><a href="mailto:hello@holus.ca?subject=Free%2015-minute%20introductory%20chat">Book a chat <svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></div>`;
+          pricingGrid.append(chat);
+        }
 
         const coverageNote = services.querySelector('.coverage-note');
         if (coverageNote && !isServicesPage) {

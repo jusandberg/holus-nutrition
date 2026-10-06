@@ -128,3 +128,12 @@ window.holusAnimateVenn = (root = document) => {
   io.observe(venn);
 };
 window.holusAnimateVenn(document);
+
+// Homepage "how it works" network: animate once it scrolls into view.
+(function () {
+  const network = document.querySelector('.holus-network-visual');
+  if (!network) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { network.classList.add('is-visible'); return; }
+  const io = new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) return; network.classList.add('is-visible'); io.disconnect(); }, { threshold: .3 });
+  io.observe(network);
+})();

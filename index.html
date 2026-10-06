@@ -67,14 +67,18 @@
         </section>
 
 
-        <section class="next-step" aria-label="Next step"><div class="section-shell"><div class="next-card"><figure class="next-art"><img src="../assets/food-broccoli.svg" alt="" width="240" height="200"></figure><div class="next-copy"><p class="eyebrow">Keep exploring</p><h2>Learn more, at your own pace.</h2><p>Nutrient basics in the Digest, or a little more about how I work.</p></div><div class="next-chips"><a class="chip-link chip-primary" href="/digest/">The Digest<svg class="arr arr-right" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a><a class="chip-link" href="/about/">About me<svg class="arr arr-right" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a></div></div></div></section>`;
+        <section class="next-step" aria-label="Next step"><div class="section-shell"><div class="next-card"><figure class="next-art"><img src="../assets/food-broccoli.svg" alt="" width="240" height="200"></figure><div class="next-copy"><p class="eyebrow">Keep exploring</p><h2>Learn more, at your own pace.</h2><p>Nutrient basics in the Digest, or a little more about how I work.</p></div><div class="next-chips"><a class="chip-link chip-primary" href="/digest/">Digest<svg class="arr arr-right" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a><a class="chip-link" href="/about/">About me<svg class="arr arr-right" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a></div></div></div></section>`;
     }
 
     function transformSite() {
       const doc = frame.contentDocument;
       if (!doc?.body) return;
 
-      doc.title = `${BRAND.name} | ${BRAND.descriptor}`;
+      const pageNames = { 'about': 'About', 'nutritional-counselling': 'Services', 'nutrition-behaviour-change': 'Approach', 'digest': 'Digest', 'faq': 'FAQ', 'midlife-nutrition': 'Midlife nutrition', 'glp1-nutrition-support': 'GLP-1 nutrition support', 'practice-policies.html': 'Policies' };
+      const pagePart = doc.location.pathname.replace(siteBase, '').replace(/\/$/, '').split('/')[0];
+      const pageName = pageNames[pagePart];
+      doc.title = pageName ? `${pageName} | ${BRAND.name}` : `${BRAND.name} | ${BRAND.descriptor}`;
+      document.title = doc.title;
       replaceText(doc);
 
       let favicon = doc.querySelector('link[rel="icon"]');
@@ -354,6 +358,6 @@
 
     frame.addEventListener('load', transformSite);
   </script>
-  <script src="holus/holus.js?v=11"></script>
+  <script src="holus/holus.js?v=12"></script>
 </body>
 </html>

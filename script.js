@@ -137,3 +137,16 @@ window.holusAnimateVenn(document);
   const io = new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) return; network.classList.add('is-visible'); io.disconnect(); }, { threshold: .3 });
   io.observe(network);
 })();
+
+/* Soft 3D wordmark: rebuild "hōlus." so the bar and period can be styled */
+(function () {
+  if (!document.getElementById('wm3d-css')) {
+    var st = document.createElement('style'); st.id = 'wm3d-css';
+    st.textContent = '.wm3d-o{position:relative;display:inline-block}.wm3d-o::before{content:"";position:absolute;left:.12em;right:.12em;top:.16em;height:.1em;border-radius:1em;background:linear-gradient(180deg,#B7C9B1 0%,#7E9478 45%,#4B5D49 100%);box-shadow:0 .03em .05em rgba(36,51,65,.35),inset 0 .02em .01em rgba(255,255,255,.55)}.wm3d-dot{display:inline-block;width:.19em;height:.19em;margin-left:.04em;border-radius:50%;transform:translateY(-.02em);background:radial-gradient(circle at 35% 30%,#6D8095 0%,#2E4154 50%,#18222C 100%);box-shadow:0 .04em .06em rgba(36,51,65,.35)}';
+    document.head.appendChild(st);
+  }
+  document.querySelectorAll('.brand-wordmark').forEach(function (el) {
+    if (el.textContent.trim() !== 'hōlus.') return;
+    el.innerHTML = 'h<span class="wm3d-o">o</span>lus<span class="wm3d-dot" aria-hidden="true"></span>';
+  });
+})();

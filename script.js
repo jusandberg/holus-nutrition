@@ -289,7 +289,7 @@ window.holusAnimateVenn(document);
 
   const load = (filename) => new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = new URL(`${filename}?v=2`, base).href;
+    script.src = new URL(`${filename}?v=3`, base).href;
     script.defer = true;
     script.dataset.holusSearchLoader = filename;
     script.addEventListener('load', resolve, { once: true });

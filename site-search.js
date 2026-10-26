@@ -163,6 +163,11 @@
     return element;
   }
 
+  function closeMobileMenu(doc) {
+    doc.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
+    doc.querySelector('.site-nav')?.classList.remove('is-open');
+  }
+
   const PROJECT_PATH = '/holus-nutrition';
 
   function sitePath(path) {
@@ -397,8 +402,7 @@
         root.location.href = sitePath('/search/');
         return;
       }
-      doc.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
-      navigation.classList.remove('is-open');
+      closeMobileMenu(doc);
       opener = doc.activeElement;
       if (!dialog.open) dialog.showModal();
       update();
@@ -518,6 +522,7 @@
       if (!commandK && !slash) return;
 
       event.preventDefault();
+      closeMobileMenu(doc);
       if (page && page.input) {
         page.input.focus();
         page.input.select();

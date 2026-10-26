@@ -137,3 +137,167 @@ window.holusAnimateVenn(document);
   const io = new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) return; network.classList.add('is-visible'); io.disconnect(); }, { threshold: .3 });
   io.observe(network);
 })();
+
+// Guided general-enquiry form. The form remains safely hidden until a valid
+// Formspree ID is configured in brand-config.js. Local preview mode is visual
+// only and never transmits what is typed.
+(function () {
+  const form = document.querySelector('[data-enquiry-form]');
+  if (!form) return;
+
+  const fallback = document.querySelector('[data-form-fallback]');
+  const success = document.querySelector('[data-form-success]');
+  const status = form.querySelector('[data-form-status]');
+  const submit = form.querySelector('button[type="submit"]');
+  const submitLabel = form.querySelector('[data-submit-label]');
+  const message = form.querySelector('textarea[name="message"]');
+  const counter = form.querySelector('[data-message-count]');
+  const topic = form.querySelector('select[name="topic"]');
+  const formId = String(window.CONTACT?.formspreeId || '').trim();
+  const isConfigured = /^[a-z0-9_-]{6,}$/i.test(formId);
+  const isLocal = ['127.0.0.1', 'localhost'].includes(window.location.hostname);
+  const isPreview = isLocal && new URLSearchParams(window.location.search).get('preview') === 'form';
+
+  if (!isConfigured && !isPreview) return;
+
+  fallback?.setAttribute('hidden', '');
+  form.removeAttribute('hidden');
+  if (isConfigured) form.action = `https://formspree.io/f/${formId}`;
+
+  const allowedTopics = new Set([...topic.options].map((option) => option.value).filter(Boolean));
+  const requestedTopic = new URLSearchParams(window.location.search).get('topic');
+  if (allowedTopics.has(requestedTopic)) topic.value = requestedTopic;
+
+  const updateCount = () => {
+    if (counter && message) counter.textContent = String(message.value.length);
+  };
+  message?.addEventListener('input', updateCount);
+  updateCount();
+
+  if (isPreview && status) {
+    status.textContent = 'Local preview: the form is active for testing, but nothing will be sent.';
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    submit.disabled = true;
+    form.setAttribute('aria-busy', 'true');
+    if (submitLabel) submitLabel.textContent = 'Sending…';
+    if (status) status.textContent = isPreview ? 'Testing the form…' : 'Sending your enquiry…';
+
+    if (isPreview) {
+      window.setTimeout(() => {
+        form.hidden = true;
+        success.hidden = false;
+        success.querySelector('h2').textContent = 'The form is working.';
+        success.querySelector('p:not(.eyebrow)').textContent = 'This was a local preview. No message or personal information was sent.';
+        success.focus();
+      }, 450);
+      return;
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error(`Form submission failed with ${response.status}`);
+
+      form.reset();
+      updateCount();
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    } catch (error) {
+      submit.disabled = false;
+      form.removeAttribute('aria-busy');
+      if (submitLabel) submitLabel.textContent = 'Send enquiry';
+      if (status) status.textContent = 'That didn’t send. Your message is still here—please try again or email hello@holus.ca.';
+      console.error(error);
+    }
+  });
+})();
+
+// Stable deep links for search results without duplicating page markup.
+(function () {
+  const services = document.querySelector('.services');
+  if (services) {
+    services.id ||= 'appointments-pricing';
+    const cards = services.querySelectorAll('.price-card');
+    ['initial-consultation', 'follow-up', 'personalized-package', 'intro-chat'].forEach((id, index) => {
+      if (cards[index]) cards[index].id ||= id;
+    });
+  }
+  const testing = document.querySelector('.lab-tests');
+  if (testing) testing.id ||= 'testing';
+  const testIds = ['gi-map', 'food-sensitivity', 'htma', 'nutrigenomics', 'dutch', 'histamine-dao-zonulin'];
+  const desktopTests = [...document.querySelectorAll('.lab-cards .lab-card')];
+  const mobileTests = [...document.querySelectorAll('.lab-acc .lab-item')];
+  const phoneTests = window.matchMedia('(max-width: 760px)');
+
+  const assignTestAnchors = () => {
+    [...desktopTests, ...mobileTests].forEach((item) => item.removeAttribute('id'));
+    const targets = phoneTests.matches ? mobileTests : desktopTests;
+    testIds.forEach((id, index) => {
+      if (targets[index]) targets[index].id = id;
+    });
+  };
+  assignTestAnchors();
+
+  const revealHashTarget = () => {
+    if (!window.location.hash) return;
+    const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    if (!target) return;
+    if (target.classList.contains('nutri-card')) {
+      const nutrientId = target.dataset.id;
+      document.querySelectorAll('.nutri-card').forEach((card) => { card.hidden = card !== target; });
+      const nutrientButton = document.querySelector(`.nutri-stickers button[data-id="${CSS.escape(nutrientId)}"]`);
+      const nutrientList = nutrientButton?.closest('.nutri-stickers');
+      const nutrientType = nutrientList?.dataset.type;
+      document.querySelectorAll('.nutri-stickers').forEach((list) => { list.hidden = list !== nutrientList; });
+      document.querySelectorAll('.nutri-tabs button').forEach((tab) => {
+        tab.setAttribute('aria-pressed', String(tab.dataset.type === nutrientType));
+      });
+      document.querySelectorAll('.nutri-stickers button').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button === nutrientButton));
+      });
+    }
+    const details = target.matches('details') ? target : target.closest('details');
+    if (details) details.open = true;
+    window.requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+  };
+
+  revealHashTarget();
+  window.addEventListener('hashchange', revealHashTarget);
+  phoneTests.addEventListener?.('change', () => {
+    assignTestAnchors();
+    revealHashTarget();
+  });
+})();
+
+// Load the small, dependency-free public-site search after the shared page
+// interactions are ready. Keeping the curated index separate makes it easy to
+// review what is public and ensures the private Practice Hub is never searched.
+(function () {
+  const sharedScript = document.currentScript;
+  if (!sharedScript || document.querySelector('script[data-holus-search-loader], script[src*="site-search.js"]')) return;
+  const base = new URL('.', sharedScript.src);
+
+  const load = (filename) => new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = new URL(`${filename}?v=2`, base).href;
+    script.defer = true;
+    script.dataset.holusSearchLoader = filename;
+    script.addEventListener('load', resolve, { once: true });
+    script.addEventListener('error', reject, { once: true });
+    document.head.append(script);
+  });
+
+  load('search-index.js')
+    .then(() => load('site-search.js'))
+    .catch((error) => console.error('Hōlus search could not load.', error));
+})();

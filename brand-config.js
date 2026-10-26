@@ -10,24 +10,65 @@
     favicon: 'favicon.svg'
   });
 
-  // Booking destinations. Leave as null to keep the email links (with their subject lines).
-  // To switch to an online booking platform, paste its URL here; every Book link updates.
+  // Booking destinations. Add a Jane URL later if bookings move there. Until then,
+  // booking links use the guided contact page and preselect the relevant enquiry.
   const BOOKING = Object.freeze({
     email: 'hello@holus.ca',
     consultationUrl: null,
-    introChatUrl: null
+    introChatUrl: null,
+    contactPageUrl: '/contact/'
   });
+
+  // Formspree setup: add only the public form ID (the part after /f/) once the
+  // Hōlus form is created. Never put a password or private API key here.
+  const CONTACT = Object.freeze({
+    formspreeId: null,
+    replyEmail: 'hello@holus.ca'
+  });
+
+  const projectPath = '/holus-nutrition';
+  const isProjectPage = () => window.location.hostname.endsWith('.github.io')
+    && window.location.pathname.startsWith(`${projectPath}/`);
+
+  const sitePath = (path) => {
+    if (!path?.startsWith('/') || !isProjectPage() || path.startsWith(`${projectPath}/`)) return path;
+    return `${projectPath}${path}`;
+  };
+
+  const topicFromSubject = (subject) => {
+    const value = subject.toLowerCase();
+    if (value.includes('15-minute')) return 'intro-chat';
+    if (value.includes('follow-up')) return 'follow-up';
+    if (value.includes('package')) return 'package';
+    if (value.includes('test')) return 'testing';
+    return 'initial-consultation';
+  };
+
+  const contactHref = (topic) => {
+    const params = topic ? `?topic=${encodeURIComponent(topic)}` : '';
+    return sitePath(`${BOOKING.contactPageUrl}${params}`);
+  };
 
   const applyBooking = (root = document) => {
     const prefix = `mailto:${BOOKING.email}?subject=`;
-    root.querySelectorAll(`a[href^="${prefix}"]`).forEach((link) => {
+    root.querySelectorAll(`a[href^="${prefix}"]:not([data-direct-email])`).forEach((link) => {
       const subject = decodeURIComponent(link.getAttribute('href').slice(prefix.length)).toLowerCase();
       const isChat = subject.includes('15-minute');
-      const url = isChat ? (BOOKING.introChatUrl || BOOKING.consultationUrl) : BOOKING.consultationUrl;
-      if (!url) return;
+      const url = isChat
+        ? (BOOKING.introChatUrl || BOOKING.consultationUrl || contactHref('intro-chat'))
+        : (BOOKING.consultationUrl || contactHref(topicFromSubject(subject)));
       link.setAttribute('href', url);
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener');
+      if (/^https?:\/\//i.test(url) && !url.startsWith(window.location.origin)) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener');
+      } else {
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+      }
+    });
+
+    root.querySelectorAll(`.footer-links a[href="mailto:${BOOKING.email}"]:not([data-direct-email])`).forEach((link) => {
+      link.setAttribute('href', contactHref());
     });
   };
 
@@ -38,11 +79,7 @@
     </span>`;
 
   const applyProjectPageLinks = (root = document) => {
-    const projectPath = '/holus-nutrition';
-    const isProjectPage = window.location.hostname.endsWith('.github.io')
-      && window.location.pathname.startsWith(`${projectPath}/`);
-
-    if (!isProjectPage) return;
+    if (!isProjectPage()) return;
 
     root.querySelectorAll('a[href^="/"]').forEach((link) => {
       const href = link.getAttribute('href');
@@ -73,6 +110,7 @@
 
   window.BRAND_CONFIG = BRAND_CONFIG;
   window.BOOKING = BOOKING;
+  window.CONTACT = CONTACT;
   window.applyBooking = applyBooking;
   window.brandWordmarkMarkup = wordmarkMarkup;
   window.applyBranding = applyBranding;
